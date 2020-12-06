@@ -1,0 +1,21 @@
+.parent {
+    display : flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.child{
+    width: 150px;
+    height: 150px;
+}
+.child1{
+    background-color: red;
+}
+.child2{
+    background-color: rgb(202, 121, 121);
+}
+.child3{
+    background-color: blue;
+}
+.child4{
+    background-color: yellow;
+}
