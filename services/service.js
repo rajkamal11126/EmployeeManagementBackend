@@ -26,7 +26,7 @@ class userService {
         }
     }
 
-    userLoginService = (req, next) => {
+    userLoginSer = (req, next) => {
         try {
             let loginData = {
                 email: { "email": req.email },

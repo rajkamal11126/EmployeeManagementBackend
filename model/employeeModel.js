@@ -15,14 +15,6 @@ const employeeSchema = new Schema({
         required: true,
         unique: true
     },
-    password: {
-        type: String,
-        required: true
-    },
-    mobile: {
-        type: Number,
-        required: true
-    }
 });
 
 let employees = mongoose.model('employees', employeeSchema);
@@ -64,7 +56,7 @@ class employeeModel {
     delete = (req, next) => {
         try {
             return new Promise((resolve, reject) => {
-                employees.findOneAndDelete(req).then(result => {
+                employees.findByIdAndDelete(req).then(result => {
                     resolve(result);
                 }).catch(error => {
                     reject(error);
@@ -76,20 +68,19 @@ class employeeModel {
     }
     update = (req, employeeId) => {
         try {
-            console.log(employeeId);
             const option = { new: true };
             return new Promise((resolve, reject) => {
-                employees.findOneAndUpdate({ email: 'rajkamal1126@gmail.com' }, { email: 'rajkamal@gmail.com' }, option).then(data => {
+                employees.findByIdAndUpdate(employeeId, req.body, option).then(data => {
                     resolve(data);
-                    console.log(data);
-
+    
                 }).catch((error) => {
                     reject(error);
                 });
             });
-        } catch (error) {
-            return { message: "Error in Model", error: error };
         }
+        catch(error) {
+        next(error)
     }
+}
 }
 module.exports = new employeeModel;

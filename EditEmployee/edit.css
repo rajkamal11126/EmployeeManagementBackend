@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.form-div {
+    background-color: whitesmoke;
+    margin: 2% auto;
+    border-width: 5vmax;
+    box-sizing: border-box;
+}
+
+.form-div label {
+    font-size: 1em;
+    color: black;
+    font-weight: 500;
+    margin: 2% 0;
+}
+
+@media(max-width: 720px) {
+    body {
+        height: 720px;
+    }
+}
+
+h4 {
+    color: black;
+}
+
+.form-div {
+    color: red;
+}
+
+.form-group {
+    text-align: left;
+}
+
+:invalid {
+    text-align: right;
+}
+
+::placeholder {
+    text-align: left;
+}
+
+p.message {
+    text-align: center;
+}
+
+a.fas.fa-user-plus {
+    color: blue;
+}
+button {
+    background: lightblue;
+}

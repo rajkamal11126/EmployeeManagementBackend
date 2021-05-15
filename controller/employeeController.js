@@ -20,7 +20,7 @@ class EmployeeController {
     }
     employeeDeleteController = (req, res, next) => {
         try {
-            employeeService.employeeDeleteService(req.body).then(result => {
+            employeeService.employeeDeleteService(req).then(result => {
                 response.success = true;
                 response.message = result.message;
                 response.data = result.data;
@@ -37,7 +37,24 @@ class EmployeeController {
     }
     employeeUpdateController = (req, res, next) => {
         try {
-            employeeService.employeeUpdateService(req.body).then(result => {
+            employeeService.employeeUpdateService(req).then(result => {
+                response.success = true;
+                response.message = result.message;
+                response.data = result.data;
+                return res.status(200).send(response);
+            }).catch(err => {
+                response.success = false;
+                response.message = err.message;
+                response.error = err.error;
+                return res.status(400).send(response);
+            });
+        } catch (e) {
+            next(e);
+        }
+    }
+    employeeGetController = (req, res, next) => {
+        try {
+            employeeService.employeeGetService(req.body).then(result => {
                 response.success = true;
                 response.message = result.message;
                 response.data = result.data;
